@@ -1,7 +1,43 @@
 <script>
 
-	function test()	{
-		console.log("test");
+	var rps = [
+		"Rock",
+		"Paper",
+		"Scissors"
+	];
+
+	function computerPlay()	{
+		return rps[Math.floor(Math.random()*rps.length)];
+	}
+
+	function playRound(playerSelection, computerSelection) {
+		var computerSelection = computerPlay();
+		if ((playerSelection.toLowerCase() == "rock") & (computerSelection == "Paper"))	 {
+			return("You Lose! Paper beats Rock");
+		}
+		if ((playerSelection.toLowerCase() == "rock") & (computerSelection == "Scissors"))	 {
+			return("You Win! Rock beats Scissors");
+		}
+		if ((playerSelection.toLowerCase() == "paper") & (computerSelection == "Scissors"))	 {
+			return("You Lose! Scissors beats Paper");
+		}
+		if ((playerSelection.toLowerCase() == "paper") & (computerSelection == "Rock"))	 {
+			return("You Win! Paper beats Rock");
+		}
+		if ((playerSelection.toLowerCase() == "scissors") & (computerSelection == "Rock"))	 {
+			return("You Lose! Rock beats Scissors");
+		}
+		if ((playerSelection.toLowerCase() == "scissors") & (computerSelection == "Paper"))	 {
+			return("You Win! Scissors beats Paper");
+		}
+		if (playerSelection.toLowerCase() == computerSelection.toLowerCase()) {
+			return("It's a tie!");
+		}
+	}
+
+	function game() {
+		
+
 	}
 
 </script>
