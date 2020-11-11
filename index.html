@@ -6,28 +6,43 @@
 		"Scissors"
 	];
 
+	var computerScore = 0;
+	var playerScore = 0;
+
 	function computerPlay()	{
 		return rps[Math.floor(Math.random()*rps.length)];
 	}
 
+	function getInput() {
+		let userChoice = prompt("Rock, Paper or Scissors?")
+		return playRound(userChoice.toLowerCase());
+	}
+
 	function playRound(playerSelection, computerSelection) {
+
 		var computerSelection = computerPlay();
 		if ((playerSelection.toLowerCase() == "rock") & (computerSelection == "Paper"))	 {
+			computerScore++
 			return("You Lose! Paper beats Rock");
 		}
 		if ((playerSelection.toLowerCase() == "rock") & (computerSelection == "Scissors"))	 {
+			playerScore++
 			return("You Win! Rock beats Scissors");
 		}
 		if ((playerSelection.toLowerCase() == "paper") & (computerSelection == "Scissors"))	 {
+			computerScore++
 			return("You Lose! Scissors beats Paper");
 		}
 		if ((playerSelection.toLowerCase() == "paper") & (computerSelection == "Rock"))	 {
+			playerScore++
 			return("You Win! Paper beats Rock");
 		}
 		if ((playerSelection.toLowerCase() == "scissors") & (computerSelection == "Rock"))	 {
+			computerScore++
 			return("You Lose! Rock beats Scissors");
 		}
 		if ((playerSelection.toLowerCase() == "scissors") & (computerSelection == "Paper"))	 {
+			playerScore++
 			return("You Win! Scissors beats Paper");
 		}
 		if (playerSelection.toLowerCase() == computerSelection.toLowerCase()) {
@@ -36,8 +51,22 @@
 	}
 
 	function game() {
-		
 
+		let userChoice = prompt("Rock, Paper or Scissors?")
+	
+		for (i = 0; i < 5; i++) {
+			console.log(playRound(userChoice.toLowerCase()));
+		}
+		console.log(computerScore);
+		console.log(playerScore);
+
+		if (playerScore > computerScore) {
+			return ("Player Wins!")
+		} else if (computerScore > playerScore) {
+			return ("Computer Wins!")
+		} else {
+			return ("It's a Tie!")
+		}
 	}
 
 </script>
